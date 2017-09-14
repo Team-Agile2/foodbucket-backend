@@ -6,8 +6,8 @@
     "start": "./bin/express server"
   },
   "engines": {
-    "node": "6.11.1",
-    "npm": "4.5.0"
+    "node": "8.5.0",
+    "npm": "5.3.0"
   },
   "dependencies": {
     "aws-sdk": "^2.114.0",
