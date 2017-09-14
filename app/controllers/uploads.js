@@ -3,9 +3,7 @@
 const controller = require('lib/wiring/controller')
 const models = require('app/models')
 const Upload = models.upload
-
 const setModel = require('./concerns/set-mongoose-model')
-
 const multer = require('multer')
 const multerUpload = multer({dest: '/tmp'})
 
