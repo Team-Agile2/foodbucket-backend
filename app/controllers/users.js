@@ -3,6 +3,7 @@
 const debug = require('debug')('foodbucket-backend:users')
 const controller = require('lib/wiring/controller')
 const models = require('app/models')
+const List = models.list
 const User = models.user
 const crypto = require('crypto')
 const authenticate = require('./concerns/authenticate')
@@ -103,13 +104,27 @@ const changepw = (req, res, next) => {
   ).catch(makeErrorHandler(res, next))
 }
 
+const create = (req, res, next) => {
+  const list = Object.assign(req.body.list, {
+    _owner: req.user._id
+  })
+  List.create(list)
+    .then(list =>
+      res.status(201)
+        .json({
+          list: list.toJSON({ virtuals: true, user: req.user })
+        }))
+    .catch(next)
+}
+
 module.exports = controller({
   index,
   show,
   signup,
   signin,
   signout,
-  changepw
+  changepw,
+  create
 }, { before: [
   { method: authenticate, except: ['signup', 'signin'] }
 ] })
