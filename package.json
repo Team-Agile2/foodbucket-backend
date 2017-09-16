@@ -1,5 +1,5 @@
 {
-  "name": "Team-Agile2.foodbucket-backend",
+  "name": "ga-wdi-boston.express-api-template",
   "version": "0.1.1",
   "private": true,
   "scripts": {
@@ -15,7 +15,7 @@
     "cors": "^2.8.3",
     "debug": "^2.6.6",
     "dotenv": "^4.0.0",
-    "express": "^4.15.2",
+    "express": "^4.15.4",
     "mongoose": "^4.9.8",
     "mongoose-unique-validator": "^1.0.5",
     "morgan": "^1.8.1",
