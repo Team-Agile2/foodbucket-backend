@@ -9,7 +9,7 @@ curl "${API}${URL_PATH}/${RESTAURANTS_ID}" \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
-    "businesses": {
+    "list": {
       "restaurants": "'"${RESTAURANTS_ID}"'"
     }
   }'
