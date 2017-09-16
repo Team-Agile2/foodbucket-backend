@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # API="http://localhost:4741"
-API="https://foodbucket.herokuapp.com/"
+API="https://foodbucket.herokuapp.com"
 URL_PATH="/sign-out"
 
 curl "${API}${URL_PATH}/${ID}" \
