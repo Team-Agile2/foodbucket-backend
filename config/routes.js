@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = require('./../lib/wiring/routes')
+module.exports = require('../lib/wiring/routes')
 
 // create routes
 
@@ -15,7 +15,8 @@ module.exports = require('./../lib/wiring/routes')
 .post('/sign-in', 'users#signin')
 .delete('/sign-out/:id', 'users#signout')
 .patch('/change-password/:id', 'users#changepw')
-.resources('users', { only: ['index', 'show'] })
+.post('/list', 'users#list')
+.resources('users', { only: ['index', 'show', 'create'] })
 .resources('uploads')
 .resources('list')
 .resources('restaurants')

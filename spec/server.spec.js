@@ -7,7 +7,7 @@ describe('loading express', function () {
   let server
 
   beforeEach(function () {
-    const app = require('./../server')
+    const app = require('../server')
     server = app.server
 
     // remove any users that exist
