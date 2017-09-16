@@ -1,7 +1,7 @@
 #!/bin/bash
 
 API="http://localhost:4741"
-URL_PATH="/uploads"
+URL_PATH="/restaurants"
 
 curl "${API}${URL_PATH}" \
   --include \
@@ -9,8 +9,8 @@ curl "${API}${URL_PATH}" \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
-    "example": {
-      "text": "'"${TEXT}"'"
+    "businesses": {
+      "restaurants": "'"${ID}"'"
     }
   }'
 
