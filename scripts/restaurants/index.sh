@@ -1,9 +1,9 @@
 #!/bin/sh
 
-API="http://localhost:4741"
-URL_PATH="/restaurants"
+API="https://api.yelp.com/v3"
+URL_PATH="/businesses/search"
 
-curl "${API}${URL_PATH}" \
+curl "${API}${URL_PATH}/" \
   --include \
   --request GET \
   --header "Authorization: Token token=$TOKEN"

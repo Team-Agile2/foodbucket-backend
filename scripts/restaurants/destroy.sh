@@ -3,7 +3,7 @@
 API="http://localhost:4741"
 URL_PATH="/restaurants"
 
-curl "${API}${URL_PATH}/${ID}" \
+curl "${API}${URL_PATH}/${RESTAURANTS_ID}" \
   --include \
   --request DELETE \
 

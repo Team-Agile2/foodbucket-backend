@@ -1,7 +1,7 @@
 #!/bin/sh
 
-API="http://localhost:4741"
-URL_PATH="/restaurants"
+API="https://api.yelp.com/v3"
+URL_PATH="/businesses"
 
 curl "${API}${URL_PATH}/${ID}" \
   --include \

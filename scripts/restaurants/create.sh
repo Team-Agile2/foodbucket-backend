@@ -10,7 +10,7 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "businesses": {
-      "restaurants": "'"${ID}"'"
+      "restaurants": "'"${RESTAURANTS_ID}"'"
     }
   }'
 

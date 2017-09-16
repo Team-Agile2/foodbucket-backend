@@ -1,6 +1,6 @@
 'use strict'
 
-const debug = require('debug')('foodbucket-backend:users')
+const debug = require('debug')('express-api-team-project:users')
 const controller = require('lib/wiring/controller')
 const models = require('app/models')
 const List = models.list
