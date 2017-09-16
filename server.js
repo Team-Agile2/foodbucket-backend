@@ -5,13 +5,13 @@ require('dotenv').load({
 
 const express = require('express')
 const app = express()
-const middleware = require('./app/middleware')
+const middleware = require('app/middleware')
 
 app.set('root', __dirname)
 
 middleware.before(app)
 
-const routes = require('./config/routes')
+const routes = require('config/routes')
 
 app.use(routes.router)
 
@@ -23,7 +23,7 @@ app.use(middleware['404'])
 // error handlers
 app.use(middleware['error-handler'])
 
-const debug = require('debug')('foodbucket-backend:server')
+const debug = require('debug')('express-api-template:server')
 const http = require('http')
 
 /**
@@ -71,9 +71,11 @@ const onError = (error) => {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges')
       process.exit(1)
+      break
     case 'EADDRINUSE':
       console.error(bind + ' is already in use')
       process.exit(1)
+      break
     default:
       throw error
   }
