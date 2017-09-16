@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # API="http://localhost:4741"
-API="https://foodbucket.herokuapp.com"
+API="${API_ORIGIN:-https://foodbucket.herokuapp.com}"
 URL_PATH="/sign-up"
 
 curl "${API}${URL_PATH}" \
