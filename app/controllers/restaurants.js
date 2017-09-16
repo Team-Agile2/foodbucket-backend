@@ -6,6 +6,58 @@ const Restaurants = models.restaurants
 const authenticate = require('./concerns/authenticate')
 const setUser = require('./concerns/set-current-user')
 const setModel = require('./concerns/set-mongoose-model')
+const yelp = require('yelp-fusion')
+const clientId = 'xlACoXuuSZmb83hJcDxgSg'
+const clientSecret = 'qiH6mwAcjzmzaW1hZ8uvkD9ESq8JWCCUtmBbz3NWs0cbRZRHyFa7J8r0JjT36Gaz'
+
+// gets access token for yelp
+const client = yelp.client(yelp.accessToken(clientId, clientSecret).then(response => {
+  console.log(response.jsonBody.access_token)
+}).catch(e => {
+  console.log(e)
+}))
+
+const _send = require('@tonybadguy/call-me-maybe')
+
+class YelpClient {
+  constructor (token) {
+    this.token = token
+  }
+
+  search (parameters) {
+    return _send({
+      url: 'https://api.yelp.com/v3/businesses/search',
+      query: parameters,
+      bearerToken: this.token
+    })
+  }
+
+  business (id) {
+    return _send({
+      url: 'https://api.yelp.com/v3/businesses/{id}',
+      urlParams: {
+        id: id
+      },
+      bearerToken: this.token
+    })
+  }
+}
+
+const accessToken = (clientId, clientSecret) => {
+  return _send({
+    url: 'https://api.yelp.com/oauth2/token',
+    method: 'post',
+    urlencodedBody: {
+      grant_type: 'client_credentials',
+      client_id: clientId,
+      client_secret: clientSecret
+    }
+  })
+}
+
+const createClient = (token) => {
+  return new YelpClient(token)
+}
 
 const index = (req, res, next) => {
   Restaurants.find()
@@ -22,19 +74,6 @@ const show = (req, res) => {
   })
 }
 
-const create = (req, res, next) => {
-  const restaurants = Object.assign(req.body.restaurants, {
-    _owner: req.user._id
-  })
-  Restaurants.create(restaurants)
-    .then(restaurants =>
-      res.status(201)
-        .json({
-          restaurants: restaurants.toJSON({ virtuals: true, user: req.user })
-        }))
-    .catch(next)
-}
-
 const update = (req, res, next) => {
   delete req.body._owner  // disallow owner reassignment.
   req.restaurants.update(req.body.restaurants)
@@ -49,9 +88,10 @@ const destroy = (req, res, next) => {
 }
 
 module.exports = controller({
+  client: createClient,
+  accessToken: accessToken,
   index,
   show,
-  create,
   update,
   destroy
 }, { before: [

@@ -6,9 +6,8 @@ URL_PATH="/businesses"
 curl "${API}${URL_PATH}/${ID}" \
   --include \
   --request GET \
+  --header "Authorization: Bearer NHG0larijXXaQKiCWF1D7zz_vpxcnFDPMoIz-i1tRcxdx3Af18IVCYYLXfQGes0o_0R-2TiXKv3qHYs981_sNJiE3yjYZJAkDGEuqNKmzBpZuaxeaBnjF_PtQWC9WXYx" \
   --header "Authorization: Token token=$TOKEN"
-  --header
-  --header
   --data '{
     "businesses": [
       {
