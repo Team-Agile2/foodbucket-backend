@@ -17,7 +17,7 @@ curl "${API}${URL_PATH}/${ID}" \
           "zip_code": "'"${ZIP_CODE}"'",
           "latitude": "'"${LATITUDE}"'",
           "longitude": "'"${LONGITUDE}"'",
-          "radius": "'"${RADIUS}"'"
+          "radius": "8046"
         },
       },
     ],
