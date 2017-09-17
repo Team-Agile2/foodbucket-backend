@@ -11,7 +11,7 @@ const listSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  resturant_id: {
+  restaurant_id: {
     type: String,
     required: true
   }
