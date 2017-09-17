@@ -16,6 +16,11 @@ const userSchema = new mongoose.Schema({
   },
   passwordDigest: String
 }, {
+  _list: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'List'
+  }
+}, {
   timestamps: true,
   toJSON: {
     virtuals: true,
