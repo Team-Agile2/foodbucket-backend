@@ -4,7 +4,7 @@
 API="${API_ORIGIN:-https://foodbucket.herokuapp.com}"
 URL_PATH="/list"
 
-curl "${API}${URL_PATH}/${RESTAURANTS_ID}" \
+curl "${API}${URL_PATH}/${ID}" \
   --include \
   --request PATCH \
   --header "Content-Type: application/json" \
