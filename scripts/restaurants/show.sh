@@ -1,7 +1,7 @@
 #!/bin/sh
 
 API="https://api.yelp.com/v3"
-URL_PATH="/businesses"
+URL_PATH="/businesses/search"
 
 curl "${API}${URL_PATH}/${ID}" \
   --include \
@@ -10,8 +10,7 @@ curl "${API}${URL_PATH}/${ID}" \
   --header "Authorization: Token token=$TOKEN"
   --location: '{
           "latitude": "'"${LATITUDE}"'",
-          "longitude": "'"${LONGITUDE}"'",
-          "radius": "'8046'"
+          "longitude": "'"${LONGITUDE}"'"
 }'
 
 echo
