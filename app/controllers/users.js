@@ -1,12 +1,17 @@
 'use strict'
 
-const debug = require('debug')('express-api-team-project:users')
+const debug = require('debug')('express-api-template:users')
+
 const controller = require('lib/wiring/controller')
 const models = require('app/models')
 const User = models.user
+
 const crypto = require('crypto')
+
 const authenticate = require('./concerns/authenticate')
+
 const HttpError = require('lib/wiring/errors/http-error')
+
 const MessageVerifier = require('lib/wiring/message-verifier')
 
 const encodeToken = (token) => {
