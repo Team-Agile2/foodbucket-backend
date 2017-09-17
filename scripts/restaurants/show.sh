@@ -11,44 +11,16 @@ curl "${API}${URL_PATH}/${ID}" \
   --data '{
     "businesses": [
       {
-        "rating": "'"${RATING}"'",
-        "price": "'"${PRICE}"'",
-        "phone": "'"${PHONE}"'",
-        "id": "'"${ID}"'",
-        "is_closed": "'"${IS_CLOSED}"'",
-        "categories": [
-          {
-            "alias": "'"${ALIAS}"'",
-            "title": "'"${TITLE}"'"
-          }
-        ],
-        "review_count": "'"${REVIEW_COUNT}"'",
-        "name": "'"${NAME}"'",
-        "url": "'"${URL}"'",
-        "coordinates": {
-          "latitude": "'"${LATITUDE}"'",
-          "longitude": "'"${LONGITUDE}"'"
-        },
-        "image_url": "'"${IMAGE_URL}"'",
+        "open_now": "'"${OPEN_NOW}"'",
+        "open_at": "'"${OPEN_AT}"'",
         "location": {
-          "city": "'"${CITY}"'",
-          "country": "'"${COUNTRY}"'",
-          "address2": "'"${ADDRESS2}"'",
-          "address3": "'"${ADDRESS3}"'",
-          "state": "'"${STATE}"'",
-          "address1": "'"${ADDRESS1}"'",
-          "zip_code": "'"${ZIP_CODE}"'"
+          "zip_code": "'"${ZIP_CODE}"'",
+          "latitude": "'"${LATITUDE}"'",
+          "longitude": "'"${LONGITUDE}"'",
+          "radius": "'"${RADIUS}"'"
         },
-        "distance": "'"${DISTANCE}"'",
-        "transactions": ["'"${TRANSACTIONS}"'"]
       },
     ],
-    "region": {
-      "center": {
-        "latitude": "'"${LATITUDE}"'",
-        "longitude": "'"${LONGITUDE}"'"
-      }
-    }
   }'
 
 echo
