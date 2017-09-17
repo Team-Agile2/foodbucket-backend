@@ -10,9 +10,6 @@ const userSchema = new mongoose.Schema({
     unique: true,
     required: true
   },
-  _users: {
-    user_id: ['']
-  },
   token: {
     type: String,
     required: true
