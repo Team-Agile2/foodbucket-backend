@@ -11,13 +11,11 @@ curl "${API}${URL_PATH}/${ID}" \
   --data '{
     "businesses": [
       {
-        "open_now": "'"${OPEN_NOW}"'",
-        "open_at": "'"${OPEN_AT}"'",
         "location": {
           "zip_code": "'"${ZIP_CODE}"'",
           "latitude": "'"${LATITUDE}"'",
           "longitude": "'"${LONGITUDE}"'",
-          "radius": "8046"
+          "radius": "'8046'"
         },
       },
     ],
