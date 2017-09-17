@@ -1,6 +1,6 @@
 'use strict'
 
-const mongooseBaseName = 'express-api-template'
+const mongooseBaseName = 'mongodb://robelsitejada:foodbucket1@ds149431.mlab.com:49431/mongodb-foodbucket'
 
 const environment = process.env.NODE_ENV || 'development'
 const database = {
