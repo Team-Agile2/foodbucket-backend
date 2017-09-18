@@ -2,16 +2,16 @@
 
 # API="http://localhost:4741"
 API="${API_ORIGIN:-https://foodbucket.herokuapp.com}"
-URL_PATH="/sign-in"
+URL_PATH="/list"
 
-curl "${API}${URL_PATH}" \
+curl "${API}${URL_PATH}/${ID}" \
   --include \
-  --request POST \
+  --request PATCH \
   --header "Content-Type: application/json" \
+  --header "Authorization: Token token=${TOKEN}" \
   --data '{
-    "credentials": {
-      "email": "'"${EMAIL}"'",
-      "password": "'"${PASSWORD}"'"
+    "list": {
+      "restaurants": "'"${RESTAURANTS_ID}"'"
     }
   }'
 

@@ -11,7 +11,7 @@ const example = require('../lib/example')
 
 describe('Sync', function () {
   it('is true', function () {
-    expect(example.sync(true)).to.be.true
+    return expect(example.sync(true)).to.be.true
   })
 })
 
